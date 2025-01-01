@@ -1,10 +1,11 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from kye import api
+from dotenv import main
 import asyncio
+import os
 
-
-bot = Bot(token=api)
+main.load_dotenv()
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 @dp.message_handler(commands=['start'])
